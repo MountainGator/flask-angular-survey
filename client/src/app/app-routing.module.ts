@@ -5,10 +5,10 @@ import { QuestionComponent } from './components/question/question.component';
 import { ThankYouComponent } from './components/thank-you/thank-you.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent },
-  {path: '/question', component: QuestionComponent},
-  {path: '/thankyou', component: ThankYouComponent}
-
+  {path: '', component: HomeComponent, pathMatch: 'full' },
+  {path: 'survey', component: QuestionComponent},
+  {path: 'thank-you', component: ThankYouComponent},
+  {path: '**', component: HomeComponent },
 ];
 
 @NgModule({

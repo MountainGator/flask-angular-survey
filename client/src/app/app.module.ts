@@ -8,6 +8,10 @@ import { HomeComponent } from './components/home/home.component';
 import { QuestionComponent } from './components/question/question.component';
 import { ThankYouComponent } from './components/thank-you/thank-you.component';
 import { HttpClientModule } from '@angular/common/http';
+import {MatSnackBarModule} from '@angular/material/snack-bar'; 
+import {MatInputModule} from '@angular/material/input'; 
+import {MatRadioModule} from '@angular/material/radio'; 
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
+    MatInputModule,
+    MatRadioModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

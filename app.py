@@ -18,6 +18,8 @@ def survey_api():
 
 @app.route('/answerlog', methods=['POST'])
 def store_answers():
-    answers.append(request.json)
+    content_type = request.headers.get('Content-Type')
+    if (content_type == 'application/json'):
+        answers.append(request.json)
 
 app.run()
