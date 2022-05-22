@@ -12,8 +12,9 @@ export class ApiService {
       return this.http.get('/surveyquestions');
   }
 
-  postAnswer (answer: string): any {
-      const res: any = this.http.post('/answerlog', {answer: answer});
+  postAnswer (answers: JSON): any {
+      const json: string = JSON.stringify(answers)
+      const res: any = this.http.post('/answerlog', {answers: json});
       console.log(res);
       return res;
   }

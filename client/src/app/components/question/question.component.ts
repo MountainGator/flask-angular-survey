@@ -23,9 +23,6 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.getQuestions();
-    this.questions.map((n: any, i: number): void => {
-      this.formControls.push([`question-${i}`, this.questions[i]]); 
-    })
   }
 
   getQuestions (): void {
@@ -33,8 +30,11 @@ export class QuestionComponent implements OnInit {
       this.api.getQuestions().subscribe((data: any) => {
       console.log('api response<questions>:', data);
       this.questions = data;
+      this.questions.map((n: any, i: number): void => {
+        this.formControls.push([`question-${i}`, this.questions[i]]); 
       })
-      this.snack.open('questions loaded', '', {duration: 1500})
+      this.snack.open('questions loaded', 'yay', {duration: 1500})
+      })
     } catch (e) {
       console.error(e);
       this.snack.open('Oops! Something went wrong', '', {duration: 1500})
@@ -49,8 +49,8 @@ export class QuestionComponent implements OnInit {
     // }
     // console.log(values);
     try {
-      this.api.postAnswer(this.models).subscribe((data: any) => {
-        console.log(data)
+      this.api.postAnswer(this.models).subscribe((res: any) => {
+        console.log('api response to post:', res)
         this.snack.open('Submitted answers!', '', {duration: 1500});
       })
     } catch (e) {
