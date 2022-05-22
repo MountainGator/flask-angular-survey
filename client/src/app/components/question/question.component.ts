@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
 })
 export class QuestionComponent implements OnInit {
   public questions: Array<{question: string; choices: Array<string>;}> = [
-    {question: "Have you shopped here before?", choices: ["Yes", "No"]},
-    {question: "Did someone else shop with you today?", choices: ["Yes", "No"]},
-    {question: "On average, how much do you spend a month on frisbees?", choices: ["Less than $10,000", "$10,000 or more"]},
-    {question: "Are you likely to shop here again?", choices: ["Yes", "No"]}
+    // {question: "Have you shopped here before?", choices: ["Yes", "No"]},
+    // {question: "Did someone else shop with you today?", choices: ["Yes", "No"]},
+    // {question: "On average, how much do you spend a month on frisbees?", choices: ["Less than $10,000", "$10,000 or more"]},
+    // {question: "Are you likely to shop here again?", choices: ["Yes", "No"]}
   ];
   public formControls: Array<any> = [];
   public answers: Array<any> = [];
