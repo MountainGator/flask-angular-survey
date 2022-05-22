@@ -21,5 +21,6 @@ def store_answers():
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
         answers.append(request.json)
+        print(answers)
 
 app.run()
