@@ -1,9 +1,8 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, session, Response
 from surveys import satisfaction_survey
 
 app = Flask(__name__)
-
-answers = list()
+app.config["SECRET_KEY"] = "SUPERsecretSurvey69"
 
 @app.route("/")
 def hello_world():
@@ -19,8 +18,11 @@ def survey_api():
 @app.route('/answerlog', methods=['POST'])
 def store_answers():
     content_type = request.headers.get('Content-Type')
+    print('request:',request.headers)
     if (content_type == 'application/json'):
-        answers.append(request.json)
-        print(answers)
+        session['answers'] = request.json
+        print('***Session***', session)
+        print('answer list:',session['answers'])
+        return Response('OK', status=201)
 
 app.run()

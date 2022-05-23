@@ -33,29 +33,23 @@ export class QuestionComponent implements OnInit {
       this.questions.map((n: any, i: number): void => {
         this.formControls.push([`question-${i}`, this.questions[i]]); 
       })
-      this.snack.open('questions loaded', 'yay', {duration: 1500})
+      this.snack.open('questions loaded', 'yay', {duration: 1500,})
       })
     } catch (e) {
       console.error(e);
-      this.snack.open('Oops! Something went wrong', '', {duration: 1500})
+      this.snack.open('Oops! Something went wrong', 'nuts', {duration: 1500,})
     }
   }
 
   handleSubmit(): void {
-    console.log(this.models);
-    // const values: Array<any> = [];
-    // for (let [key, value] of Object.entries(this.models)) {
-    //   values.push(value);
-    // }
-    // console.log(values);
     try {
       this.api.postAnswer(this.models).subscribe((res: any) => {
         console.log('api response to post:', res)
-        this.snack.open('Submitted answers!', '', {duration: 1500});
+        this.snack.open('Submitted answers!', 'nice', {duration: 1500,});
       })
     } catch (e) {
       console.error(e);
-      this.snack.open('Oops! Something went wrong', '', {duration: 1500});
+      this.snack.open('Oops! Something went wrong', 'nuts', {duration: 1500,});
     }
 
     this.router.navigate(['thank-you'])
